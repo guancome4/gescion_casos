@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Casos | Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo Gestión de Casos" class="logo">
+        <h1>Gestor de Casos</h1>
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li class="active" data-section="dashboard"><i class="fas fa-chart-bar"></i> Dashboard</li>
+          <li data-section="casos"><i class="fas fa-folder-open"></i> Todos los Casos</li>
+          <li data-section="crear-caso"><i class="fas fa-plus-circle"></i> Crear Caso</li>
+          <li data-section="seguimientos"><i class="fas fa-history"></i> Seguimientos</li>
+          <li data-section="reportes"><i class="fas fa-file-alt"></i> Reportes</li>
+        </ul>
+      </nav>
+      <div class="user-profile">
+        <div class="user-avatar" id="user-avatar">JD</div>
+        <span id="user-name">Juan Díaz</span>
+        <button id="btn-logout"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="content-header">
+        <h2 id="section-title">Dashboard</h2>
+        <div class="header-actions">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar casos..." id="search-input">
+            <i class="fas fa-search"></i>
+          </div>
+          <button class="btn-primary" id="btn-quick-case">
+            <i class="fas fa-plus"></i> Caso Rápido
+          </button>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+        <!-- Dynamic content will be loaded here -->
+        <div id="dashboard-section" class="section-content active">
+          <!-- Dashboard content -->
+        </div>
+
+        <div id="casos-section" class="section-content">
+          <!-- All cases content -->
+        </div>
+
+        <div id="crear-caso-section" class="section-content">
+          <!-- Create case form -->
+        </div>
+
+        <div id="seguimientos-section" class="section-content">
+          <!-- Follow-ups content -->
+        </div>
+
+        <div id="reportes-section" class="section-content">
+          <!-- Reports content -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for quick case creation -->
+  <div class="modal" id="quick-case-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>Crear Caso Rápido</h3>
+      <form id="quick-case-form">
+        <div class="form-group">
+          <label for="quick-hallazgo">Hallazgo:</label>
+          <textarea id="quick-hallazgo" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script type="module" src="js/supabase.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/casos.js"></script>
+  <script type="module" src="js/seguimientos.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
